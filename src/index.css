@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Cursor */
+.custom-cursor {
+  @apply fixed w-8 h-8 pointer-events-none z-50 rounded-full mix-blend-difference;
+  background: white;
+  transition: transform 0.2s ease;
+}
+
+/* Popup Animation */
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.popup-slide {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+/* Metrics Counter Animation */
+@keyframes countUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.metric-animate {
+  opacity: 0;
+  animation: countUp 1s ease-out forwards;
+}
+
+.metric-animate:nth-child(1) { animation-delay: 0.2s; }
+.metric-animate:nth-child(2) { animation-delay: 0.4s; }
+.metric-animate:nth-child(3) { animation-delay: 0.6s; }
+
+/* Review Card Animation */
+@keyframes slideIn {
+  from {
+    transform: translateX(100px) rotate(5deg);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0) rotate(0);
+    opacity: 1;
+  }
+}
+
+.review-card {
+  animation: slideIn 0.8s ease-out forwards;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.review-card:hover {
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.1);
+}
+
+.review-card:nth-child(1) { animation-delay: 0.2s; }
+.review-card:nth-child(2) { animation-delay: 0.4s; }
+.review-card:nth-child(3) { animation-delay: 0.6s; }
+
+/* Hover Animation for Cards */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.float-animation:hover {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Section Background Animations */
+@keyframes wave {
+  0% { transform: translateX(0) translateZ(0) scaleY(1); }
+  50% { transform: translateX(-25%) translateZ(0) scaleY(0.8); }
+  100% { transform: translateX(-50%) translateZ(0) scaleY(1); }
+}
+
+.wave-bg::before {
+  content: '';
+  @apply absolute inset-0 opacity-5;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M 0 1000 Q 250 750 500 1000 T 1000 1000 L 1000 0 L 0 0 Z' fill='white'/%3E%3C/svg%3E") repeat-x;
+  animation: wave 15s infinite linear;
+  background-size: 100% 100%;
+}
+
+/* Skill Card Animation */
+@keyframes glow {
+  0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+  50% { box-shadow: 0 0 20px rgba(255, 255, 255, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.2); }
+}
+
+.skill-card {
+  animation: glow 3s infinite;
+}
+
+/* Project Card Animation */
+@keyframes tilt {
+  0% { transform: rotate3d(0, 1, 0, 0deg); }
+  50% { transform: rotate3d(0, 1, 0, 3deg); }
+  100% { transform: rotate3d(0, 1, 0, 0deg); }
+}
+
+.project-card:hover {
+  animation: tilt 3s infinite ease-in-out;
+}
+
+/* Career Goals Animation */
+@keyframes pulse-border {
+  0% { border-color: rgba(0, 0, 0, 0.3); }
+  50% { border-color: rgba(0, 0, 0, 0.8); }
+  100% { border-color: rgba(0, 0, 0, 0.3); }
+}
+
+.pulse-border {
+  animation: pulse-border 2s infinite;
+}
+
+/* Quote Animation */
+@keyframes quoteFloat {
+  0% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+  100% { transform: rotate(-2deg); }
+}
+
+.quote-animation {
+  animation: quoteFloat 6s ease-in-out infinite;
+}
